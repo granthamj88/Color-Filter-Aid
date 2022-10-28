@@ -5,14 +5,34 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
+        <title>Color Theory Aid</title>
     </head>
+<!-- 
+    desired Filter effects results
+        - Complementary, Triadic, Tetradic, 
+            Analogous, Neutral, Shade, Tint, Tone -
+-->
     <body>
-        <div class="container">
-            <h1 class="title" filter = "blue(5px)">Color <br/> & <br/> Lighten/Darken</h1>
-          
-            <label for="hex">Color (Hex)</label>
-                <input type="text" name="hex" id="hexInput" placeholder="#c6d5ac" value="#c6d5ac">
+        <div class="container"> <!-- contains the whole of the app, no additinal containers -->
 
+        <header class="title">
+<!-- working title -->
+            <h1 class="title">Color Theory Aid</h1>
+        </header>
+
+        <nav class="editBar">
+<!-- color input  -->
+            <div>
+                <label for="hex">Color (Hex)</label>
+                    <input type="text" name="hex" id="hexInput" placeholder="#c6d5ac" value="#c6d5ac">
+            </div>
+<!-- lighten darken toggle button -->
+            <div>
+                <label for="slider" id="sliderText">0%</label>
+                    <input class="slider" id="slider" name="slider" type="range" min="0" max="100" value="0" >
+            </div>
+        </nav>
+<!-- add all filter options -->
         <div class="toggle">
             <p id="lightenText" class="toggle-text">Lighten</p>
 
@@ -22,16 +42,17 @@
 
             <p id="darkenText" class="toggle-text">Darken</p>
         </div>
-
-            <label for="slider" id="sliderText">0%</label>
-                <input class="slider" id="slider" name="slider" type="range" min="0" max="100" value="0" >
-
-            <p>Input Color</p>
-                <div id="inputColor" class="box"></div>
-
-            <p id="alteredColorText">Altered Color</p>
+<!-- Color Displays -->     
+        <div class="colorDisplay">
+<!-- Main color Input -->
+            <label>Input Color</label>
+            <div id="inputColor" class="box">
+                <div ></div>
+            </div>
+<!-- Altered color input -->
+            <label id="alteredColorText">Altered Color</label>
                 <div id="alteredColor" class="box"></div>
         </div>
-        <script src="index.js"></script>
+            <script src="index.js"></script>
     </body>
 </html>

@@ -9,13 +9,14 @@ const slider = document.getElementById('slider');
 const lightenText = document.getElementById('lightenText');
 const darkenText = document.getElementById('darkenText');
 const toggleBtn = document.getElementById('toggleBtn');
-
+//use of filter test - worked
+// inputColor.style.filter = "blur(5px) grayscale(100%)"
 toggleBtn.addEventListener('click', () => {
-  //simplifly to a turnary
-    if(toggleBtn.classList.contains('toggled')){
-        toggleBtn.classList.remove('toggled');
-        lightenText.classList.remove('unselected');
-        darkenText.classList.add('unselected');
+  
+  if(toggleBtn.classList.contains('toggled')){
+    toggleBtn.classList.remove('toggled');
+    lightenText.classList.remove('unselected');
+    darkenText.classList.add('unselected');
   } else {
     toggleBtn.classList.add('toggled');
     lightenText.classList.add('unselected');
@@ -58,7 +59,7 @@ const isValidHex = (hex) => {
 
 const convertHexToRGB = (hex) => {
     if(!isValidHex(hex)) return null;
-    let rgb = '';
+    
     let strippedHex = hex.replace('#', '');
         /*|| strippedHex.length === 6 adding to if statment made new color in alter, test?*/
 
@@ -108,6 +109,5 @@ const reset = () =>{
   
 }
 
-//use of filter test - worked
-// inputColor.style.filter = "blur(5px) grayscale(100%)"
+
   
