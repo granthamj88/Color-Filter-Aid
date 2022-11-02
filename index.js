@@ -14,10 +14,6 @@ const slider = document.getElementById('slider');
 const lightenText = document.getElementById('lightenText');
 const darkenText = document.getElementById('darkenText');
 const toggleBtn = document.getElementById('toggleBtn');
-//use of filter test - worked
-// inputColor.style.filter = "blur(5px) grayscale(100%)"
-
-
 
 /* event listener arrow function switches lighten/darken switch using 
     getBy and .classList to add and remove the needed classes */
@@ -101,7 +97,6 @@ const convertHexToRGB = (hex) => {
     if(!isValidHex(hex)) return null;
     
     let strippedHex = hex.replace('#', '');
-        /*|| strippedHex.length === 6 adding to if statment made new color in alter, test?*/
 
     if(strippedHex.length === 3){
         strippedHex = strippedHex[0] + strippedHex[0] 
@@ -138,8 +133,6 @@ const alterColor = (hex, percentage) => {
 const increaseWithin0To255 = (hex, amount) => {
     return Math.min(255, Math.max(0, hex + amount));
 }
-
-// alterColor("fff", 10)
 
 const reset = () =>{ 
     slider.value = 0;
