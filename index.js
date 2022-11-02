@@ -1,7 +1,12 @@
 const hexInput = document.getElementById('hexInput');
 const inputColor = document.getElementById('inputColor');
-const alteredColor = document.getElementById('alteredColor');
-const alteredColorText = document.getElementById('alteredColorText')
+const inputColorText = document.getElementById('inputColorText');
+
+// const cBox = document.getElementsByClassName('CBox');
+const iBox = document.querySelectorAll('.IBox');
+const cBox = document.querySelectorAll('.CBox');
+const hBox = document.querySelectorAll('.HBox');
+const sBox = document.querySelectorAll('.SBox');
 
 const sliderText = document.getElementById('sliderText');
 const slider = document.getElementById('slider');
@@ -11,6 +16,11 @@ const darkenText = document.getElementById('darkenText');
 const toggleBtn = document.getElementById('toggleBtn');
 //use of filter test - worked
 // inputColor.style.filter = "blur(5px) grayscale(100%)"
+
+
+
+/* event listener arrow function switches lighten/darken switch using 
+    getBy and .classList to add and remove the needed classes */
 toggleBtn.addEventListener('click', () => {
   
   if(toggleBtn.classList.contains('toggled')){
@@ -25,17 +35,20 @@ toggleBtn.addEventListener('click', () => {
   reset();
 })
 
+/* event listener arrow function reads hex input and assines it to main
+     input color background */
 hexInput.addEventListener('keyup', () => {
-  
+    
     const hex = hexInput.value;
     if(!isValidHex(hex)) return;
     
     const strippedHex = hex.replace('#', '');
-  
-    inputColor.style.backgroundColor = "#" + strippedHex;  
+    inputColor.style.backgroundColor = "#" + strippedHex;
+    inputColorText.innerText = `Hex Color: ${strippedHex}`;  
     reset();
 })
 
+/* event listener arrow function */
 slider.addEventListener('input', () => {
     if(!isValidHex(hexInput.value)) return;
     
@@ -44,8 +57,35 @@ slider.addEventListener('input', () => {
     const valueAddition = toggleBtn.classList.contains('toggled') ? -slider.value : slider.value;
     
     const alteredHex = alterColor(hexInput.value, valueAddition);
-    alteredColor.style.backgroundColor = alteredHex;
-    alteredColorText.innerText = `Altered Color ${alteredHex}`; 
+
+    for (let i = 0; i < iBox.length; i++){
+      iBox[i].style.backgroundColor = alteredHex;
+      if(i == 0){iBox[i].style.filter = "invert(25%)";}
+      if(i == 1){iBox[i].style.filter = "invert(75%)";}
+      if(i == 2){iBox[i].style.filter = "invert(100%)";}
+    }
+
+    for (let i = 0; i < cBox.length; i++){
+      cBox[i].style.backgroundColor = alteredHex;
+      if(i == 0){cBox[i].style.filter = "contrast(25%)";}
+      if(i == 1){cBox[i].style.filter = "contrast(75%)";}
+      if(i == 2){cBox[i].style.filter = "contrast(100%)";}
+    }
+
+    for (let i = 0; i < hBox.length; i++){
+      hBox[i].style.backgroundColor = alteredHex;
+      if(i == 0){hBox[i].style.filter = "hue-rotate(90deg)";}
+      if(i == 1){hBox[i].style.filter = "hue-rotate(180deg)";}
+      if(i == 2){hBox[i].style.filter = "hue-rotate(270deg)";}
+    }
+
+    for (let i = 0; i < sBox.length; i++){
+      sBox[i].style.backgroundColor = alteredHex;
+      if(i == 0){sBox[i].style.filter = "sepia(25%)";}
+      if(i == 1){sBox[i].style.filter = "sepia(75%)";}
+      if(i == 2){sBox[i].style.filter = "sepia(100%)";}
+    }
+
   })   
 
 const isValidHex = (hex) => {
@@ -104,8 +144,8 @@ const increaseWithin0To255 = (hex, amount) => {
 const reset = () =>{ 
     slider.value = 0;
     sliderText.innerText=`0%`;
-    alteredColor.style.backgroundColor = hexInput.value;
-    alteredColorText.innerText = `Altered Color ${hexInput.value}`; 
+    cBox.style.backgroundColor = hexInput.value;
+    alteredColorText.innerText = `Complementary Color: ${hexInput.value}`; 
   
 }
 

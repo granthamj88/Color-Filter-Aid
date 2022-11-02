@@ -2,14 +2,21 @@
 <!-- customize code to allow for altering of color for artistic color theroy aid -->
 <!-- lesson sorce url: https://scrimba.com/learn/javascriptcolortool -->
 <!-- html internal style, filters: https://www.w3schools.com/jsref/prop_style_filter.asp - filters for custom mods to the app -->
+<!-- 
+    hex code fres-
+        https://www.colorhexa.com/ff0000
+        https://htmlcolorcodes.com/color-picker/
+        https://picabooyearbooks.com/2016/03/color-theory-cheat-sheet/
+-
+-->
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
-        <title>Color Theory Aid</title>
+        <title>Color Filter Aid</title>
     </head>
 <!-- 
     desired Filter effects results
-        - Complementary, Triadic, Tetradic, 
+        - Complementary, split complement, Triadic, Tetradic, 
             Analogous, Neutral, Shade, Tint, Tone -
 -->
     <body>
@@ -17,22 +24,23 @@
 
         <header class="title">
 <!-- working title -->
-            <h1 class="title">Color Theory Aid</h1>
+            <h1 class="title">Color Filter Aid</h1>
         </header>
 
         <nav class="editBar">
 <!-- color input  -->
             <div>
-                <label for="hex">Color (Hex)</label>
-                    <input type="text" name="hex" id="hexInput" placeholder="#c6d5ac" value="#c6d5ac">
+                <label for="hex">Color (Hex-Code)</label>
+                    <input type="text" name="hex" id="hexInput" placeholder="#3e603e" value="#3e603e">
             </div>
-<!-- lighten darken toggle button -->
+<!-- lighten darken slider -->
             <div>
                 <label for="slider" id="sliderText">0%</label>
                     <input class="slider" id="slider" name="slider" type="range" min="0" max="100" value="0" >
             </div>
         </nav>
-<!-- add all filter options -->
+
+<!-- lighten darken toggle button -->
         <div class="toggle">
             <p id="lightenText" class="toggle-text">Lighten</p>
 
@@ -42,16 +50,48 @@
 
             <p id="darkenText" class="toggle-text">Darken</p>
         </div>
+
 <!-- Color Displays -->     
         <div class="colorDisplay">
-<!-- Main color Input -->
-            <label>Input Color</label>
-            <div id="inputColor" class="box">
-                <div ></div>
-            </div>
-<!-- Altered color input -->
-            <label id="alteredColorText">Altered Color</label>
-                <div id="alteredColor" class="box"></div>
+
+<!-- Main color Input --> 
+            <label for="hexMain" id="inputColorText">Hex Color: </label>
+            <!-- move light and dark effect to main color as well -->
+                <div name="hexMain" id="inputColor" class="singleBox">
+                </div>
+            
+<!-- Inverted color input -->
+            <label for="hexInverted">Inverted Colors </label>
+                <div name="hexInverted" class="alteredColorpack">    
+                    <div  class="IBox multiBox"></div>
+                    <div  class="IBox multiBox"></div>
+                    <div  class="IBox multiBox"></div>
+                </div> 
+
+<!-- Contrast color input -->
+            <label for="hexContrast">Contrast Colors </label>
+                <div name="hexContrast" class="alteredColorpack">    
+                    <div  class="CBox multiBox"></div>
+                    <div  class="CBox multiBox"></div>
+                    <div  class="CBox multiBox"></div>
+                </div>
+
+<!-- Hue-Rotate color input -->
+            <label for="hexHue-Rotate">Hue-Rotate Colors </label>
+                <div name="hexHue-Rotate" class="alteredColorpack">    
+                    <div  class="HBox multiBox"></div>
+                    <div  class="HBox multiBox"></div>
+                    <div  class="HBox multiBox"></div>
+                </div>
+
+<!-- Sepia color input -->
+            <label for="hexSepia">Sepia Colors </label>
+                <div name="hexSepia" class="alteredColorpack">    
+                    <div  class="SBox multiBox"></div>
+                    <div  class="SBox multiBox"></div>
+                    <div  class="SBox multiBox"></div>
+                </div>                
+        </div>    
         </div>
             <script src="index.js"></script>
     </body>

@@ -1,3 +1,7 @@
+:root{
+    --startColor: #3e603e;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,14 +12,6 @@ body {
     background-color: #3e4560;
     color:white;
 }
-
-/* .container{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    
-} */
 
 .title{
     text-align: center;
@@ -56,27 +52,23 @@ label{
     margin: 0 10px;
 }
 
-    .inner-circle {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: white;
-        transition: all 250ms;
-    }
+.inner-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 250ms;
+}
 
-    .toggle-btn.toggled > .inner-circle{
-        transform: translateX(30px);
-        background-color: #333;
-    }
+.toggle-btn.toggled > .inner-circle{
+    transform: translateX(30px);
+    background-color: #333;
+}
 
-    .unselected{
-        opacity: 0.25;
-    }
-    
+.unselected{
+    opacity: 0.25;
+}
 
-/*  */
-
-/* Color Display */
 input{
     margin-bottom: 25px;
     display: flex;
@@ -84,25 +76,56 @@ input{
 }
 
 input[type="text"]{
-    padding: 5px 10px;
-    border-radius: 20px;
-    border: none;
+padding: 5px 10px;
+border-radius: 20px;
+border: none;
 }
+/*  */
 
-.box{
-    
-    height: 100px;
-    width: 80%;
-    background-color: #c6d5ac;
-    margin-bottom: 25px;
-}
-
+/* Color Display */
 .colorDisplay{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+}
+
+.alteredColorpack{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.singleBox{
+    display: flex;
+    height: 100px;
+    width: 80%;
+    background-color: var(--startColor);
+    margin-bottom: 25px;
+}
+
+.multiBox{
+    flex: 0 0 33.333333%;
+    height: 100px;
+    margin: 5px 5px;
+}
+
+.IBox{
+    background-color: var(--startColor);
+}
+
+.CBox{
+    background-color: var(--startColor);
+}
+
+.HBox{
+    background-color: var(--startColor);
+}
+
+.SBox{
+    background-color: var(--startColor);
 }
 /*  */
 
